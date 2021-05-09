@@ -2,7 +2,8 @@
   <div class="auto-width">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="YouTube Transcript Downloader"/>
-    <UrlInput/>
+    <UrlInput @transcript="displayTranscript"/>
+    {{ transcript }}
   </div>
 </template>
 
@@ -18,6 +19,11 @@ import UrlInput from '@/UrlInput.vue';
   },
 })
 export default class App extends Vue {
+  private transcript: string = '';
+
+  private displayTranscript(transcript: string) {
+    this.transcript = transcript;
+  }
 }
 </script>
 
@@ -32,7 +38,7 @@ export default class App extends Vue {
 }
 
 .auto-width {
-  width: min(700px, 70%);
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
