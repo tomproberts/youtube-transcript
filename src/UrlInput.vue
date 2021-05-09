@@ -1,7 +1,7 @@
 <template>
   <div class="url-input">
     <el-input
-        placeholder="https://youtube.com/watch?v="
+        placeholder="https://www.youtube.com/watch?v="
         prefix-icon="el-icon-video-play"
         v-model="inputUrl">
     </el-input>
@@ -11,14 +11,16 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import { getTranscript } from '@/youtube-api/api';
+import { getTranscript, parseUrl } from '@/youtube-api/api';
 
 @Options({})
 export default class UrlInput extends Vue {
   private inputUrl: string = '';
+  private videoId: string = '';
 
   private getTranscript() {
-    getTranscript(this.inputUrl).then(r => this.$emit('transcript', r));
+    this.videoId = parseUrl(this.inputUrl);
+    getTranscript(this.videoId).then(r => this.$emit('transcript', r));
   }
 }
 </script>

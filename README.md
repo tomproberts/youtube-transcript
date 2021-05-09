@@ -1,6 +1,13 @@
-# youtube-transcript
+# YouTube Transcript Downloader
+`youtube-transcript` is a tool designed to help you download subtitles from YouTube videos, in any available language.
+The live version is available [here](tomproberts.github.io/youtube-transcript).
 
-## Project setup
+## Caveats
+`youtube-transcript` cannot be used to download auto-generated captions from a YouTube video, but can be used to download
+any captions that would be available when watching the video on YouTube itself.
+
+## Run Locally
+### Install packages
 ```
 npm install
 ```
@@ -9,16 +16,3 @@ npm install
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
