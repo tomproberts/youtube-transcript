@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import { getTranscript, parseUrl } from '@/youtube-api/api';
+import { getAvailableTranscriptList, getTranscript, parseUrl } from '@/youtube-api/api';
 
 @Options({})
 export default class UrlInput extends Vue {
@@ -21,6 +21,7 @@ export default class UrlInput extends Vue {
   private getTranscript() {
     this.videoId = parseUrl(this.inputUrl);
     getTranscript(this.videoId).then(r => this.$emit('transcript', r));
+    getAvailableTranscriptList(this.videoId).then(r => console.log(r));
   }
 }
 </script>

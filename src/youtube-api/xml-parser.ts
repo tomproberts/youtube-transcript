@@ -1,5 +1,5 @@
 import parser from 'fast-xml-parser';
-import { Transcript } from '@/types';
+import { Transcript, TranscriptList } from '@/types';
 
 const options = {
     attributeNamePrefix: '',
@@ -20,6 +20,20 @@ export function parseTranscriptXML(xml: string): Transcript {
     return jsonObj.transcript;
 }
 
+export function parseAvailableTranscriptListXML(xml: string): TranscriptList {
+    if (xml === undefined || xml === '') return {};
+
+    let jsonObj;
+    try {
+        jsonObj = parser.parse(xml, options, true);
+    } catch (e) {
+        console.error(e);
+    }
+    return jsonObj;
+}
+
 function fixEscapeCharacters(xml: string): string {
-    return xml.replaceAll('&amp;quot;', '"');
+    return xml
+        .replaceAll('&amp;quot;', '"')
+        .replaceAll('&amp;#39;', '\'');
 }
