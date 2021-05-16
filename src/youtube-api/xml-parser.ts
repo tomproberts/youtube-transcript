@@ -9,6 +9,7 @@ const options = {
 
 export function parseTranscriptXML(xml: string): Transcript {
     if (xml === undefined || xml === '') return { text: [] };
+    xml = fixEscapeCharacters(xml);
 
     let jsonObj;
     try {
@@ -17,4 +18,8 @@ export function parseTranscriptXML(xml: string): Transcript {
         console.error(e);
     }
     return jsonObj.transcript;
+}
+
+function fixEscapeCharacters(xml: string): string {
+    return xml.replaceAll('&amp;quot;', '"');
 }

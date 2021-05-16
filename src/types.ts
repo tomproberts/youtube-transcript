@@ -1,8 +1,8 @@
 export interface Transcript {
-    text: subtitle[];
+    text: Subtitle[];
 }
 
-export interface subtitle {
+export interface Subtitle {
     text: string;
     start: string;
     dur: string;
