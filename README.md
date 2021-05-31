@@ -1,6 +1,6 @@
 # YouTube Transcript Downloader
 `youtube-transcript` is a tool designed to help you download subtitles from YouTube videos, in any available language.
-The live version is available [here](tomproberts.github.io/youtube-transcript).
+The live version is available [here](https://tomproberts.github.io/youtube-transcript).
 
 ## Caveats
 `youtube-transcript` cannot be used to download auto-generated captions from a YouTube video, but can be used to download
